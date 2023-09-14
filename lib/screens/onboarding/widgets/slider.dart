@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../core/colors/colors.dart';
@@ -40,9 +41,11 @@ class SliderAndButton extends StatelessWidget {
           onTap: () {
             if (_currentPage < _pages.length - 1) {
               _pageController.nextPage(
-                duration: const Duration(seconds: 1),
+                duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
               );
+            } else {
+              context.go('/loginsignup');
             }
           },
           child: Container(
