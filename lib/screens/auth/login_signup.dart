@@ -1,4 +1,6 @@
 import 'package:cinemax/core/colors/colors.dart';
+import 'package:cinemax/screens/auth/widgets/custom_button.dart';
+import 'package:cinemax/screens/auth/widgets/subtitle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -18,7 +20,7 @@ class LoginSignUp extends StatelessWidget {
             children: [
               SizedBox(height: 100.h),
               Image(
-                image: AssetImage('assets/images/cn.png'),
+                image: const AssetImage('assets/images/cn.png'),
                 height: 88.h,
                 width: 88.w,
               ),
@@ -32,47 +34,16 @@ class LoginSignUp extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 8.h),
-              Text(
-                'Enter your registered',
-                style: GoogleFonts.montserrat(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
-                  color: grey,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                'Phone Number to Sign Up',
-                style: GoogleFonts.montserrat(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
-                  color: grey,
-                ),
-                textAlign: TextAlign.center,
-              ),
+              Subtitle(text: 'Enter your registered'),
+              Subtitle(text: 'Phone Number to Sign Up'),
               SizedBox(height: 64.h),
-              InkWell(
-                radius: 32.r,
-                onTap: () {
-                  context.push('/onboarding');
-                },
-                child: Container(
-                  height: 56.h,
-                  width: 327.w,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32.r),
-                    color: blueAccent,
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Sign UP',
-                      style: GoogleFonts.montserrat(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                        color: white,
-                      ),
-                    ),
-                  ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.w),
+                child: CustomButton(
+                  text: 'Sign Up',
+                  onTap: () {
+                    context.push('/signup');
+                  },
                 ),
               ),
               SizedBox(height: 34.h),
@@ -89,7 +60,9 @@ class LoginSignUp extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      context.push('/login');
+                    },
                     child: Text(
                       ' Login',
                       style: GoogleFonts.poppins(
